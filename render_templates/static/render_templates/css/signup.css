@@ -1,0 +1,204 @@
+/* body {
+	background-image: url(../assets/img/background.png);
+	background-repeat: no-repeat;
+	background-size: cover;
+} */
+header svg {
+	height: 40px;
+	width: auto;
+	background-color: rgba(20, 130, 175, 1);
+	padding: 10px;
+	border-radius: 9px;
+}
+
+.container-form {
+	padding-top: 10px;
+	width: 1287px;
+	height: 717px;
+	background-color: rgba(20, 130, 175, 1);
+	border-radius: 12px;
+	margin-top: 60px;
+	margin-left: auto;
+	margin-right: auto;
+	position: relative;
+}
+
+
+
+.help {
+	position: absolute;
+	left: 1200px;
+	top: -30px;
+	text-align: center;
+	border-radius: 4px;
+}
+
+.container-form span a {
+	color: rgba(0, 10, 101, 1) ;
+	text-decoration: none;
+	font-size: 24px;
+	font-weight: bold;
+	font-family: 'IBM Plex Sans', sans-serif;
+	
+}
+
+.txt-registrate {
+	
+	border-radius: 8px;
+	text-align: center;
+	margin-top: 40px;
+	margin-left: auto;
+	margin-right: auto;
+	width: 1220px;
+	height: 85px;
+	background-color: rgba(225, 241, 248, 1);
+}
+
+.txt-registrate span{
+	font-size: 40px;
+	color: rgba(0, 0, 0, 0.68);
+	padding-top:19px;
+	font-family: "Encode Sans Semi Condensed", sans-serif;
+	font-weight:700;
+}
+
+.container-form-dos {
+	width: 1220px;
+	height: 525px;
+	background-color: rgba(225, 241, 248, 1);
+	border-radius: 8px;
+	margin-top: 41px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.area {
+	margin-left: 32px;
+	padding-top: 15px;
+	height: 500px;
+}
+
+.area input[type="submit"] {
+	width: 174px;
+	height: 48px;
+	background-color: rgba(0, 10, 101, 1);
+	border-radius: 7px;
+	color: white;
+	text-align: center;
+}
+.area label{
+	font-size: 30px;
+	font-family: 'Inter', sans-serif;
+	margin: 20px;
+}
+.area form{
+	height: 400px;
+}
+
+.input{
+	width: 300px;
+	height: 356px;
+	/* border: solid black 1px; */
+	position: relative;
+	left: 400px;
+	top: -354px;
+}
+
+.input input{
+	
+	background-color: transparent;
+	width: 243px;
+	height: 27px;
+}
+#num-dni{
+	margin-top: 23px;
+}
+#nom-us{
+	margin-top: 23px;
+}
+#mail{
+	margin-top: 20px;
+}
+#confirm-m{
+	margin-top: 20px;
+}
+#pass{
+	margin-top: 20px;
+}
+#confirm-pass{
+	margin-top: 20px;
+}
+.input select{
+	width: 243px;
+	height: 27px;
+	background-color: transparent;
+	
+}
+.input select option{
+	width: 243px;
+	height: 27px;
+	background-color: transparent;
+}
+
+.area button {
+	width: 174px;
+	height: 48px;
+	background-color: rgba(0, 10, 101, 1);
+	border-radius: 7px;
+	color: white;
+	text-align: center;
+}
+
+.check {
+	width: 350px;
+	height: 90px;
+	background-color: white;
+	display: flex;
+	position: relative;
+	bottom: 350px;
+	left: 82px;
+	border: solid rgba(0, 0, 0, 0.349) 1px;
+
+}
+
+.cuadrado-check {
+	width: 50px;
+	height: 50px;
+	border: solid black 1px;
+	margin-top: 20px;
+	margin-left: 30px;
+}
+
+.check p {
+	margin-top: 25px;
+	margin-left: 20px;
+	font-size: 30px;
+	font-family: "Encode Sans Semi Condensed", sans-serif;
+}
+
+.botones{
+	
+	width: 420px;
+	position: relative;
+	bottom: 419px;
+	left: 660px;
+}
+.botones button{
+	font-family: "Encode Sans Semi Condensed", sans-serif;
+
+}
+
+footer {
+	background-color: rgba(0, 10, 101, 1);
+	padding: 30px;
+	margin-top: 10px;
+	color: white;
+	text-align: center;
+	font-size: 15px;
+	margin-bottom: 0px;
+}
+footer a {
+	color: white;
+	text-decoration: none;
+	font-weight: bold;
+}

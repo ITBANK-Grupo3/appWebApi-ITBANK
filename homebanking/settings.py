@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     "login",
     "prestamos",
     "tarjetas",
+    "render_templates",
 ]
 
 MIDDLEWARE = [

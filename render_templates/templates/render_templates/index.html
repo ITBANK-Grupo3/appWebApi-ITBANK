@@ -1,0 +1,44 @@
+{% extends 'render_templates/base.html' %} 
+{% load static %} 
+{% block title%}Home{% endblock title %} 
+{% block css%}{% static 'render_templates/css/index.css' %}{% endblock css %}
+{% block content %}
+<div class="cuerpo">
+	<div>
+		<a href="{% url 'billetera' %}">
+			<button class="Botones ingresar">Ingresar</button></a
+		>
+	</div>
+
+	<div>
+		<a href="{% url 'billetera' %}">
+			<button class="Botones">Token ITBANK</button></a
+		>
+	</div>
+
+	<div>
+		<a href="{% url 'billetera' %}">
+			<button class="Botones">Beneficios</button></a
+		>
+	</div>
+
+	<div>
+		<a href="{% url 'billetera' %}">
+			<button class="Botones">Cajeros y sucursales</button></a
+		>
+	</div>
+
+	<div>
+		<a href="{% url 'billetera' %}">
+			<button class="Botones">Politica y privacidad</button></a
+		>
+	</div>
+
+	<div>
+		<a href="{% url 'billetera' %}">
+			<button class="Botones">Atencion al cliente</button></a
+		>
+	</div>
+</div>
+
+{% endblock content %} 

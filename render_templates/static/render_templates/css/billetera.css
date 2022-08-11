@@ -1,0 +1,294 @@
+* {
+	font-family: "Laila", sans-serif;
+	margin: 0px;
+	padding: 0px;
+}
+
+body {
+	background-color: white;
+	margin-bottom: 90px;
+}
+
+.container {
+	max-width: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+header {
+	height: 180px;
+	width: auto;
+	background-color: rgba(20, 130, 175, 1);
+	border-radius: 0 0 20px 20px;
+}
+header svg {
+	width: 159px;
+	height: 34px;
+}
+
+#logo1 {
+	width: 159px;
+	height: 34px;
+}
+
+.logo {
+	margin-top: 20px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.btns-header {
+	border-radius: 10px;
+	margin-top: 38px;
+	margin-left: auto;
+	margin-right: auto;
+	display: flex;
+	width: 245px;
+	height: 55px;
+	background-color: rgba(0, 65, 137, 1);
+	justify-content: center;
+	align-items: center;
+	justify-content: space-around;
+}
+
+.btn-1 {
+	transition: box-shadow 0.3s ease;
+	font-size: 15px;
+	color: white;
+	font-family: "Laila", sans-serif;
+	width: 102px;
+	height: 38px;
+	border: 2px;
+	border-radius: 10px;
+
+	background-color: rgba(0, 10, 101, 1);
+	/*no puedo quitar el recuadro negro del button! */
+}
+
+.btn-2 {
+	transition: box-shadow 0.3s ease;
+	font-size: 15px;
+	color: white;
+	width: 102px;
+	height: 38px;
+	border-radius: 10px;
+	border: 2px;
+	background-color: rgba(0, 10, 101, 1);
+	/*no puedo quitar el recuadro negro del button! */
+}
+.btn-1:hover {
+	box-shadow: 0 0.1rem 0.4rem rgba(255, 255, 255, 0.7);
+}
+
+.btn-2:hover {
+	box-shadow: 0 0.1rem 0.4rem rgba(255, 255, 255, 0.7);
+}
+
+.cuenta-info {
+	width: 245px;
+	height: 67px;
+	background-color: rgb(225, 241, 248);
+	margin-top: 9px;
+	margin-bottom: 9px;
+	border-radius: 10px;
+	/* border: solid 1px black; */
+	box-shadow: 0 6px 6px -6px black;
+	padding: 10px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.num-caja {
+	color: white;
+	font-weight: bold;
+	background: linear-gradient(
+		to bottom,
+		#030180,
+		rgba(7, 7, 128, 0.94),
+		rgba(13, 19, 130, 0.9),
+		rgba(6, 17, 123, 0.7)
+	);
+	width: 108px;
+	border-radius: 12px;
+	padding: 1px;
+	margin-left: 6px;
+	text-align: center;
+	font-size: 10px;
+	margin-bottom: 10px;
+}
+
+#dinero {
+	float: right;
+	font-weight: bolder;
+	margin-right: 60px;
+}
+.tarjetaboton {
+	transition: box-shadow 0.3s ease;
+	font-size: 10px;
+	color: white;
+	width: 67px;
+	height: 67px;
+	border-radius: 15px;
+	border: 2px;
+	background: linear-gradient(
+		to bottom,
+		#030180,
+		rgba(7, 7, 128, 0.94),
+		rgba(13, 19, 130, 0.9),
+		rgba(6, 17, 123, 0.7)
+	);
+}
+.tarjetaboton:hover {
+	box-shadow: 0 0.1rem 0.4rem rgba(5, 21, 238, 0.7);
+}
+.tarjetasoc {
+	margin-right: 15px;
+	width: 60px;
+	border-radius: 10px;
+	border: black 1px;
+	margin-bottom: 10px;
+}
+
+.div-funciones {
+	width: 259px;
+	height: 106px;
+	background-color: white;
+	margin-top: 12px;
+	margin-left: auto;
+	margin-right: auto;
+	border-radius: 4px;
+	font-size: 10px;
+}
+
+.funciones-display {
+	display: flex;
+	justify-content: center;
+	justify-content: space-around;
+}
+
+.mrgn {
+	/*por alguna razon los margin-top no me están funcionando*/
+	margin-top: 25px;
+}
+
+.card-foot img {
+	transition: box-shadow 0.3s ease;
+	width: 95px;
+	margin: 10px;
+	border-radius: 20px;
+}
+
+.card-foot {
+	background-color: rgb(225, 241, 248);
+	border-radius: 15px;
+	margin: 15px;
+	box-shadow: 0 6px 6px -6px black;
+}
+.display-foot {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-left: 4px;
+	height: 100px;
+}
+
+.left {
+	float: left;
+}
+.right {
+	float: right;
+}
+
+.column img {
+	transition: box-shadow 0.3s ease;
+	height: 60px;
+	width: 60px;
+	border: solid rgb(225, 241, 248) 1px;
+	border-radius: 10px;
+}
+
+img:hover {
+	box-shadow: 0 0.1rem 0.4rem rgba(119, 173, 223, 0.7);
+}
+
+.containerbotones {
+	background-color: rgb(225, 241, 248);
+	border-radius: 10px;
+	width: 264px;
+	height: 180px;
+	box-shadow: 0 6px 6px -6px black;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.column {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 15px;
+	margin: 4px;
+	height: 80px;
+	width: 80px;
+}
+
+.actividad {
+	font-weight: 500;
+	width: 247px;
+	background-color: rgb(225, 241, 248);
+	border-radius: 10px;
+	padding: 8px;
+	box-shadow: 0 6px 6px -6px black;
+	margin-left: auto;
+	margin-right: auto;
+}
+.actividad a {
+	font-size: 9px;
+	text-decoration: none;
+}
+.transacciones {
+	font-size: 14px;
+	font-weight: bold;
+	margin-top: 10px;
+}
+.fecha {
+	font-size: 8px;
+	font-weight: lighter;
+}
+footer {
+	margin-top: 40px;
+	width: auto;
+	height: 22px;
+	background-color: white;
+	box-shadow: 0px -10px 6px -10px rgba(0, 0, 0, 0.99);
+}
+
+.botonespie {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	margin-left: auto;
+	margin-right: auto;
+	padding: 1px;
+	height: 45px;
+}
+.botonespie img {
+	margin: 0 12px 0 12px;
+	width: 25px;
+	height: 25px;
+}
+
+#QR img {
+	width: 70px;
+	height: 70px;
+	margin-bottom: 16px;
+}
+
+#barrafija {
+	position: fixed;
+	bottom: 0px;
+	width: 100%;
+	height: 48px;
+}

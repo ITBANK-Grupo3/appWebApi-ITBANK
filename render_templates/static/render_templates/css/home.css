@@ -1,0 +1,91 @@
+.menu{
+    height: 60px;
+    background-color: #1482af;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.itba{
+    /*margin-right: 50%;
+    margin-left: 50%; */
+    height: 30px;
+    
+    
+}
+body{
+    
+    background: url(https://static.vecteezy.com/system/resources/previews/001/736/153/non_2x/abstract-geometric-blue-grid-lines-on-white-background-free-vector.jpg);   
+    background-size: cover;
+
+}
+.cosas{
+    background-color: #b5cacf;
+}
+.homebanking{
+    /*position: absolute;
+    right: 0px;
+    width: 300px;
+    padding: 10px;*/
+    color: aliceblue;
+}
+.colap{
+    position: absolute;
+    right: 100px;
+    width: 300px;
+    padding: 10px;
+    
+}
+
+.final{
+    background-color: #1482af;
+    font-size: medium;
+    height: 80px;
+    color: white; 
+    position: relative;
+    
+}
+.dolar{
+    background-color: rgb(220, 230, 233);
+}
+.card-img-top{
+    /*height: 240px;
+    width: 240px;
+    object-fit:cover; */
+}
+
+.card{
+    height:300px
+}
+
+
+.dolarcards{
+    background-color: #b5cacf;}
+    
+
+.cono-rojo {
+    width: 0px;
+    height: 0px;
+    border-right: 7px solid transparent;
+    border-left: 7px solid transparent;
+    border-top: 10px solid red;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.cono-verde{
+    width: 0px;
+    height: 0px;
+    border-right: 7px solid transparent;
+    border-left: 7px solid transparent;
+    border-bottom: 10px solid rgb(34, 255, 0);
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    display: inline-block;
+
+
+}
