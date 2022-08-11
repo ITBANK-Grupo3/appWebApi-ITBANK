@@ -1,0 +1,12 @@
+input {
+	transition: box-shadow 0.3s ease;
+	width: 220px;
+	height: 37px;
+	margin: 15px 10px 15px 0;
+	background-color: #f1fbff;
+	border-radius: 4px;
+	border: #e1f1f8;
+	color: #1482af;
+  padding: 0 10px;
+}
+

@@ -19,14 +19,14 @@
 			rel="stylesheet"
 		/>
 		<title>{% block title %}{% endblock title %} | ITBANK</title>
-		<link rel="stylesheet" href="{% block css %}{% endblock css %}" />
+		{% block css %}{% endblock css %}
 	</head>
 
 	<body>
 		<div class="container">
 			<header>
 				<div class="logo">
-					<a href="{% url 'home' %}"
+					<a href="{% url 'billetera' %}"
 						><svg
 							id="Layer_1"
 							class="logo"
@@ -109,6 +109,7 @@
 						</svg>
 					</a>
 				</div>
+        {% block selector %}{% endblock selector %}
 			</header>
 		</div>
 
