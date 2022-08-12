@@ -100,6 +100,23 @@ class MarcaTarjeta(models.Model):
         db_table = "marca_tarjeta"
 
 
+class Movimientos(models.Model):
+    transaction_id = models.AutoField(primary_key=True)
+    emisor_id = models.ForeignKey(
+        Cuenta, on_delete=models.CASCADE, related_name="emisor"
+    )
+    receptor_id = models.ForeignKey(
+        Cuenta, on_delete=models.CASCADE, related_name="receptor"
+    )
+    amount = models.FloatField()
+    type = models.CharField(max_length=50)
+    created_at = models.DateField()
+
+    class Meta:
+        managed = False
+        db_table = "movimientos"
+
+
 class Prestamo(models.Model):
     loan_id = models.AutoField(primary_key=True)
     loan_type = models.TextField()
