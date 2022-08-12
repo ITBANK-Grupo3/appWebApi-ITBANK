@@ -136,3 +136,6 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 # Login y Logout
 LOGIN_REDIRECT_URL = "/"
 LOGOUT_REDIRECT_URL = "/cuenta/login/"
+
+# Ingreso estandar de fechas en formularios
+DATE_INPUT_FORMATS = ["%d-%m-%Y"]
