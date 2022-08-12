@@ -11,4 +11,7 @@ def home(request):
 
 @login_required(login_url="/home/")
 def billetera(request):
+    if not request.user.is_authenticated:
+        home(request)
+
     return render(request, "render_templates/billetera.html")
