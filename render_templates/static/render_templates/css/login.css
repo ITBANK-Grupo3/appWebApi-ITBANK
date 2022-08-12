@@ -10,3 +10,12 @@ input {
   padding: 0 10px;
 }
 
+ul li a{
+  text-decoration: none;
+  color: #1482af;
+}
+
+li{
+  list-style: none;
+  margin: 1rem;
+}

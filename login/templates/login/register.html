@@ -4,20 +4,17 @@
 <link rel="stylesheet" href="{% static 'render_templates/css/login.css' %}">
 {% endblock css %}
 
-{% block title %}Login{% endblock title %}
+{% block title %}Registro{% endblock title %}
 
 {% block content %}
 <div class="cuerpo">
 	<form class="cuerpo" action="" method="POST">
     {% csrf_token %}
-    <input type="text" name="username" autofocus maxlength="254" requiredid="id_username" class="form-control" placeholder="DNI"/>
-    <input type="password" name="password" requiredid="id_password" class="form-control" placeholder="Contraseña"/>
-
+    {{form}}
     <input class="Botones" type="submit" value="Ingresar">
   </form>
   <ul>
-    <li><a href="">¿Has olvidado tu contraseña?</a></li>
-    <li><a href="{% url 'register' %}">Registrarse</a></li>
+    <li><a href="{% url 'login' %}">Iniciar sesion</a></li>
   </ul>
 </div>
 
