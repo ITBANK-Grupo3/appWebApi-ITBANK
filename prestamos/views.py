@@ -39,6 +39,6 @@ def prestamo(request):
             #         c.balance = int(request.POST.get('monto',''))
             #         c.save()
             
-            return redirect(reverse('prestamo')+"?ok")
+            return redirect(reverse('prestamo')+"?ok" ) 
             
     return render(request, "prestamo/prestamo.html",{"form": prestamo_form})
