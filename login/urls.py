@@ -8,4 +8,5 @@ urlpatterns = [
         "logout/", LogoutView.as_view(template_name="login/logout.html"), name="logout"
     ),
     path("", include("clientes.urls")),
+    path("paquetes/", include("cuentas.urls")),
 ]
