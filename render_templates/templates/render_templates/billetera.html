@@ -16,7 +16,7 @@
 {% block content %}
     
     <div class="cuenta-info">
-        <div><h2>Hola {{name}}!</h2></div>
+        <div><h2>Hola {%if not name == "" %}{{name}}{% else %}Desconocido{% endif %}!</h2></div>
         <div class="tarjetasoc right">
             <div><a href=""><button class="tarjetaboton">Cambia tarjeta asociada</button></a></div>
 
@@ -25,13 +25,13 @@
             <p>CA $ ****XXXX</p>
         </div>
 
-        <div id="dinero"><span>$100,00</span></div>
+        <div id="dinero"><span>${% if caja_pesos.balance %}{{caja_pesos.balance}}{% else %}0{% endif %}</span></div>
 
     </div>
     <div class="containerbotones">
         <article class="column left"><a href=""> <img src="{% static 'render_templates/assets/img/transferir.png' %}"></a></article>
         <article class="column left"><a href=""><img src="{% static 'render_templates/assets/img/enviar dinero.png'%} "></a></article>
-        <article class="column left"><a href=""><img src="{% static 'render_templates/assets/img/pedir dinero.png' %}"></a></article>
+        <article class="column left"><a href="{% url 'prestamo' %}"><img src="{% static 'render_templates/assets/img/pedir dinero.png' %}"></a></article>
         <article class="column left"><a href=""><img src="{% static 'render_templates/assets/img/recargar cel.png' %}"></a></article>
         <article class="column left"><a href=""><img src="{% static 'render_templates/assets/img/pagar servicios.png' %}"></a></article>
         <article class="column left"><a href=""> <img src="{% static 'render_templates/assets/img/aun mas.png' %}"></a></article>
