@@ -12,7 +12,9 @@ class RegistroForm(forms.Form):
     )
     email = forms.EmailField(label="Email", required=True)
     dob = forms.DateField(
-        label="Fecha de nacimiento", input_formats=settings.DATE_INPUT_FORMATS
+        label="Fecha de nacimiento",
+        input_formats=settings.DATE_INPUT_FORMATS,
+        widget=forms.TextInput(attrs={"placeholder": "dd-mm-yyyy"}),
     )
     contraseña = forms.CharField(
         label="Contraseña", widget=forms.PasswordInput, max_length=50
