@@ -1,8 +1,8 @@
-import random
 from django.shortcuts import render, redirect
 from django.urls import reverse
 from . import forms
 from . import creacion_cuentas as cuentas
+from tarjetas import functions as tarjetas
 from database import models as models_db
 
 # Create your views here.
@@ -31,5 +31,8 @@ def paquetes(request):
             # creamos las cuentas segun corresponda
             cuentas.crear_cuentas(tipo_cliente_id, cliente_id["customer_id"])
 
+            # generamos la tarjeta de debito inicial
+            tarjetas.generate_card_for_user(cliente_id["customer_id"])
+            # Redirigimos al login
             return redirect(reverse("login"))
     return render(request, "cuentas/paquetes.html", {"form": form})

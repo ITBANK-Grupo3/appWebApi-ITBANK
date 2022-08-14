@@ -12,7 +12,7 @@
 </div>
 {% endblock selector %}
 
-{% block content %}
+  {% block content %}
 
     <div class="cuenta-info">
         <div class="tarjetasoc right">
@@ -20,7 +20,7 @@
 
         </div>
         <div class="num-caja">
-            <p>CA $ ****XXXX</p>
+            <p>CA $ ****{{caja_pesos.iban|slice:"20:24"}}</p>
         </div>
 
         <div id="dinero"><span>${% if caja_pesos.balance %}{{caja_pesos.balance}}{% else %}0{% endif %}</span></div>
@@ -39,36 +39,38 @@
     <div id="tarjetas">
         <p> Tus Tarjetas </p>
     </div>
-
+    {% for tarjeta in tarjetas %}
     <div class="cuenta-info" id="tarjeta">
         <div class="tarjeta">
           <h4>Débito</h4> 
         </div>
-        <div id="num-tarjeta">**** XXXX</div>
+      
+        <div id="num-tarjeta">**** **** **** {{tarjeta.numero_tarjeta|slice:"12:16"}}</div>
+    </div>
+    {% endfor %}
+
+    {% if not tarjetas %}
+    <div class="cuenta-info">
+      <p>No hay tarjetas disponibles...</p>
+    </div>
+    {% endif %}
 
     </div>
 
-    <div class="cuenta-info " id="tarjeta">
-        <div class="tarjeta">
-            <h4>Crédito</h4>
-        </div>
-        <div id="num-tarjeta">**** XXXX</div>
-
-    </div>
-
 
 
 
     </div>
+    
     <footer id="barrafija">
-        <div class="botonespie">
-            <article class="center left"><a href="{% url 'billetera' %}"> <img src="{% static 'render_templates/assets/img/casa (1) 1.png' %}"></a></article>
-            <article class="center left"><a href="{%url 'graficos'%}"><img src="{% static 'render_templates/assets/img/pie-chart 1.png' %} "></a></article>
-            <article class="center left " id="QR"><a href=""><img src="{% static 'render_templates/assets/img/QR.png' %} "></a></article>
-            <article class="center left"><a href=""><img src="{% static 'render_templates/assets/img/packard-bell 1.png' %} "></a></article>
-            <article class="center left "><a href="{% url 'logout' %}"><img src="{% static 'render_templates/assets/img/Union.png' %} "></a></article>
-        </div>
+      <div class="botonespie">
+          <article class="center left"><a href="#"> <img src="{% static 'render_templates/assets/img/casa (1) 1.png' %}"></a></article>
+          <article class="center left"><a href="{%url 'graficos'%}"><img src="{% static 'render_templates/assets/img/pie-chart 1.png' %} "></a></article>
+          <article class="center left " id="QR"><a href=""><img src="{% static 'render_templates/assets/img/QR.png' %} "></a></article>
+          <article class="center left"><a href=""><img src="{% static 'render_templates/assets/img/packard-bell 1.png' %} "></a></article>
+          <article class="center left "><a href="{% url 'logout' %}"><img src="https://cdn-icons.flaticon.com/png/512/2984/premium/2984988.png?token=exp=1660509725~hmac=2645136fb40988058f23457389231fb5"></a></article>
+      </div>
     </footer>
 
 
-{% endblock content %}
+  {% endblock content %}

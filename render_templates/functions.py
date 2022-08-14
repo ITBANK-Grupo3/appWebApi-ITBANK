@@ -1,4 +1,5 @@
 from database import models as models_db
+import tarjetas
 
 
 def get_user_info(dni):
@@ -45,5 +46,12 @@ def get_user_info(dni):
             # Cargamos las cuentas en el diccionario
             diccionario["caja_dolares"] = caja_dolares[0]
             diccionario["cuenta_corriente"]: cuenta_corriente[0]
+
+        # Recopilamos datos de las tarjetas a su nombre
+        tarjetas = models_db.Tarjeta.objects.using("homebanking").filter(
+            cliente_id=customer_id
+        )
+        if len(tarjetas) > 0:
+            diccionario["tarjetas"] = tarjetas
 
     return diccionario
