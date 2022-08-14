@@ -1,5 +1,8 @@
 {% extends 'render_templates/base.html' %} {% load static %} 
 {% block css %}
+<!-- Bootstrap -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+<!-- Css propio -->
 <link rel="stylesheet" href="{% static 'render_templates/css/index.css' %}">
 <link rel="stylesheet" href="{% static 'render_templates/css/login.css' %}">
 {% endblock css %}
@@ -7,24 +10,99 @@
 {% block title %}Paquetes{% endblock title %}
 
 {% block content %}
-<div class="cuerpo">
-  <div class="cuenta-info">
-    <h2>Classic</h2>
+<div class="cuerpo accordion accordion-flush">
+
+  <!-- Acordion classic -->
+  <div class="accordion-item cuenta-info">
+    <h2 class="accordion-header" id="flush-headingOne">
+      <button class="accordion-button collapsed classic" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+        <strong>Cliente Classic</strong>
+      </button>
+    </h2>
+    <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+      <div class="accordion-body">
+        <strong>Informacion detallada:</strong> 
+        <ul>
+          <li class="decorado">Tiene solamente una tarjeta de débito que se crea junto con el cliente.</li>
+          <li class="decorado">Solo tiene una caja ahorro en pesos creada cuando se dio de alta el cliente.
+            Como no tiene cuenta en dólares, no puede comprar y vender dólares.</li>
+          <li class="decorado">Solo se le permite retirar hasta un máximo de $10.000 diarios por cajero.
+          </li>
+          <li class="decorado">No tienen acceso a tarjetas de crédito ni chequeras.</li>
+          <li class="decorado">La comisión por transferencias hechas es de 1%.</li>
+          <li class="decorado">No puede recibir transferencias mayores a $150.000 sin previo aviso.
+          </li>
+        </ul>
+      </div>
+    </div>
   </div>
-  <div class="cuenta-info gold">
-    <h2>Gold</h2>
+
+  <!-- Acordion gold -->
+  <div class="accordion-item cuenta-info gold">
+    <h2 class="accordion-header" id="flush-headingTwo">
+      <button class="accordion-button collapsed gold" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+        <strong>Cliente Gold</strong>
+      </button>
+    </h2>
+    <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
+      <div class="accordion-body">
+        <strong>Informacion detallada:</strong> 
+        <ul>
+          <li class="decorado">Tiene una tarjeta de débito que se crea con el cliente.</li>
+          <li class="decorado">Tiene una cuenta corriente con un descubierto de $10.000.</li>
+          <li class="decorado">Tiene una caja de ahorro en dólares, por lo que puede comprar dólares.
+          </li>
+          <li class="decorado">Puede tener solo una tarjeta de crédito.</li>
+          <li class="decorado">Las extracciones de efectivo tienen un máximo de $20.000 por día.</li>
+          <li class="decorado">Pueden tener una chequera.</li>
+          <li class="decorado">La comisión por transferencias hechas es de 0,5%.</li>
+          <li class="decorado">No puede recibir transferencias mayores a $500.000 sin previo aviso.</li>
+        </ul>
+      </div>
+    </div>
   </div>
-  <div class="cuenta-info black">
-    <h2>Black</h2>
+
+  <!-- Acordion black -->
+  <div class="accordion-item cuenta-info black">
+    <h2 class="accordion-header" id="flush-headingThree">
+      <button class="accordion-button collapsed black" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+        <strong>Cliente Black</strong>
+      </button>
+    </h2>
+    <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
+      <div class="accordion-body">
+        <strong>Informacion detallada:</strong> 
+        <ul>
+          <li class="decorado">Los clientes Black tienen una caja de ahorro en pesos, cuenta corriente en
+            pesos, y una caja de ahorro en dólares.
+            </li>
+          <li class="decorado">Pueden tener un descubierto en su cuenta corriente de hasta $10.000.
+          </li>
+          <li class="decorado">Pueden tener hasta 5 tarjetas de crédito.</li>
+          <li class="decorado">Pueden extraer hasta $100.000 por día.</li>
+          <li class="decorado">Pueden tener hasta dos chequeras.
+          </li>
+          <li class="decorado">No se aplican comisiones a las transferencias.
+          </li>
+          <li class="decorado">Pueden recibir transferencias por cualquier monto sin previa autorización.</li>
+        </ul>  
+      </div>
+    </div>
   </div>
-	<form class="cuerpo" action="" method="POST">
+
+
+  <!-- Selector de cliente -->
+	<form class="cuerpo cuenta__form" action="" method="POST">
     {% csrf_token %}
     {{form}}
-    <input class="Botones" type="submit" value="Siguiente Paso">
+    <input class="Botones" type="submit" value="Registrarse">
   </form>
   <ul>
     <li><a href="{% url 'login' %}">Iniciar sesion</a></li>
   </ul>
 </div>
 
+<!-- Bootstrap script-->
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
 {% endblock content %}
