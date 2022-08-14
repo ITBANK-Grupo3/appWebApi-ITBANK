@@ -9,7 +9,7 @@
 {% block selector %}
 <div class="btns-header">
   <div><a href="#"><button class="btn-1">Tu billetera</button></a></div>
-  <div><a href="tubanco.html"><button class="btn-2">Tu banco</button></a></div>
+  <div><a href="{% url 'tubanco' %}"><button class="btn-2">Tu banco</button></a></div>
 </div>
 {% endblock selector %}
 
@@ -73,11 +73,12 @@
     <footer id="barrafija">
         <div class="botonespie">
             <article class="center left"><a href="#"> <img src="{% static 'render_templates/assets/img/casa (1) 1.png' %}"></a></article>
-            <article class="center left"><a href="graficos.html"><img src="{% static 'render_templates/assets/img/pie-chart 1.png' %} "></a></article>
+            <article class="center left"><a href="{%url 'graficos'%}"><img src="{% static 'render_templates/assets/img/pie-chart 1.png' %} "></a></article>
             <article class="center left " id="QR"><a href=""><img src="{% static 'render_templates/assets/img/QR.png' %} "></a></article>
             <article class="center left"><a href=""><img src="{% static 'render_templates/assets/img/packard-bell 1.png' %} "></a></article>
             <article class="center left "><a href="{% url 'logout' %}"><img src="{% static 'render_templates/assets/img/Union.png' %} "></a></article>
         </div>
     </footer>
+
 
 {% endblock content %}

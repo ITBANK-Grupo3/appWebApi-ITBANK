@@ -1,78 +1,9 @@
-header {
-  height: 189px;
-  width: 287px;
-  background-color: rgba(20, 130, 175, 1);
-  border-radius: 0 0 20px 20px;
-}
-header svg {
-  width: 159px;
-  height: 34px;
-}
-
-#logo1 {
-  width: 159px;
-  height: 34px;
-}
-
-.logo {
-  margin-top: 0px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.btns-header {
-  border-radius: 10px;
-  margin-top: 38px;
-  margin-left: auto;
-  margin-right: auto;
-  display: flex;
-  width: 245px;
-  height: 55px;
-  background-color: rgba(0, 65, 137, 1);
-  justify-content: center;
-  align-items: center;
-  justify-content: space-around;
-}
-
-.btn-1 {
-  transition: box-shadow 0.3s ease;
-  font-size: 15px;
-  color: white;
-  font-family: "Laila", sans-serif;
-  width: 102px;
-  height: 38px;
-  border: 2px;
-  border-radius: 10px;
-
-  background-color: rgba(0, 10, 101, 1);
-  /*no puedo quitar el recuadro negro del button! */
-}
-
-.btn-2 {
-  transition: box-shadow 0.3s ease;
-  font-size: 15px;
-  color: white;
-  width: 102px;
-  height: 38px;
-  border-radius: 10px;
-  border: 2px;
-  background-color: rgba(0, 10, 101, 1);
-  /*no puedo quitar el recuadro negro del button! */
-}
-.btn-1:hover {
-  box-shadow: 0 0.1rem 0.4rem rgba(255, 255, 255, 0.7);
-}
-
-.btn-2:hover {
-  box-shadow: 0 0.1rem 0.4rem rgba(255, 255, 255, 0.7);
-}
 
 .container {
-  height: 652px;
-  width: 287px;
+  height: auto;
+  width: auto;
   background-color: white;
-  border: solid black 1px;
+  
   margin: 0 auto;
 }
 
@@ -80,18 +11,21 @@ header svg {
   height: 143px;
   width: 259px;
   background-color: #e1f1f8;
-  border-radius: 4px;
+  border-radius: 10px;
   margin: 0 auto;
-  margin-top: -25px;
+  margin-top: 25px;
+  box-shadow: 0 6px 6px -6px black;
 }
 
 .caja-inferior {
   height: 254px;
   width: 259px;
   background-color: #e1f1f8;
-  border-radius: 4px;
+  border-radius: 10px;
   margin: 0 auto;
   margin-top: 21px;
+  box-shadow: 0 6px 6px -6px black;
+  
 }
 
 .grafico {
@@ -105,48 +39,3 @@ header svg {
   margin-left: 16px;
 }
 
-.span-cajasup {
-  margin: 0 auto;
-}
-
-footer {
-  margin-top: 40px;
-  height: 49px;
-  width: 287px;
-  background-color: white;
-  box-shadow: 0px -10px 6px -10px rgba(0, 0, 0, 0.99);
-}
-
-.botonespie {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 287px;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 1px;
-  height: 45px;
-}
-.botonespie img {
-  margin: 0 12px 0 12px;
-  width: 25px;
-  height: 25px;
-}
-
-#QR img {
-  width: 70px;
-  height: 70px;
-  margin-bottom: 16px;
-}
-
-#barrafija {
-  position: absolute;
-  width: 287px;
-  height: 49px;
-}
-
-#QR img {
-  width: 70px;
-  height: 70px;
-  margin-bottom: 16px;
-}
