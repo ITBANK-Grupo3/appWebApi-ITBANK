@@ -8,6 +8,11 @@
 
 {% block content %}
 <div class="cuerpo">
+  
+  <ul>
+    <li>{{success}}</a></li>
+  </ul>
+  
 	<form class="cuerpo" action="" method="POST">
     {% csrf_token %}
     <input type="text" name="username" autofocus maxlength="254" requiredid="id_username" class="form-control" placeholder="DNI"/>
