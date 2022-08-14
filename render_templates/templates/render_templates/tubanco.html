@@ -1,6 +1,5 @@
 {% extends 'render_templates/base.html' %} {% load static %} 
 {% block css %}
-
 <link rel="stylesheet" href="{% static 'render_templates/css/tubanco.css' %}">
 {% endblock css %}
 
@@ -24,7 +23,7 @@
             <p>CA $ ****XXXX</p>
         </div>
 
-        <div id="dinero"><span>$100,00</span></div>
+        <div id="dinero"><span>${% if caja_pesos.balance %}{{caja_pesos.balance}}{% else %}0{% endif %}</span></div>
 
     </div>
     <div class="containerTB">

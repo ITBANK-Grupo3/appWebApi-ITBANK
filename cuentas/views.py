@@ -31,12 +31,5 @@ def paquetes(request):
             # creamos las cuentas segun corresponda
             cuentas.crear_cuentas(tipo_cliente_id, cliente_id["customer_id"])
 
-            # models_db.Cuenta.objects.using("homebanking").create(
-            #     customer_id=cliente_id["customer_id"],
-            #     balance=0,
-            #     iban=f"AR052004000000{random.randint(1000000000,9999999999)}",
-            #     tipo_cuenta=1,
-            # )
-
             return redirect(reverse("login"))
     return render(request, "cuentas/paquetes.html", {"form": form})

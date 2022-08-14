@@ -16,7 +16,7 @@
 {% block content %}
     
     <div class="cuenta-info">
-        <div><h2>Hola {{name}}!</h2></div>
+        <div><h2>Hola {%if not name == "" %}{{name}}{% else %}Desconocido{% endif %}!</h2></div>
         <div class="tarjetasoc right">
             <div><a href=""><button class="tarjetaboton">Cambia tarjeta asociada</button></a></div>
 
@@ -25,7 +25,7 @@
             <p>CA $ ****XXXX</p>
         </div>
 
-        <div id="dinero"><span>$100,00</span></div>
+        <div id="dinero"><span>${% if caja_pesos.balance %}{{caja_pesos.balance}}{% else %}0{% endif %}</span></div>
 
     </div>
     <div class="containerbotones">
