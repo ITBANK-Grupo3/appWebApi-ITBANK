@@ -22,7 +22,7 @@
 
         </div>
         <div class="num-caja">
-            <p>CA $ ****XXXX</p>
+            <p>CA $ ****{{caja_pesos.iban|slice:"20:24"}}</p>
         </div>
 
         <div id="dinero"><span>${% if caja_pesos.balance %}{{caja_pesos.balance}}{% else %}0{% endif %}</span></div>
