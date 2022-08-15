@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/4.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.1/ref/settings/
 """
-from os import path
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -61,7 +61,7 @@ ROOT_URLCONF = "homebanking.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [],
+        "DIRS": [os.path.join(BASE_DIR, 'templates')],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
@@ -135,7 +135,9 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 # Login y Logout
 LOGIN_REDIRECT_URL = "/"
-LOGOUT_REDIRECT_URL = "/cuenta/login/"
+LOGOUT_REDIRECT_URL = "/accounts/login/"
 
 # Ingreso estandar de fechas en formularios
 DATE_INPUT_FORMATS = ["%d-%m-%Y"]
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
