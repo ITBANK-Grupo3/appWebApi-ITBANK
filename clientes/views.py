@@ -22,18 +22,23 @@ def register(request):
             pwd = request.POST.get("rep_contraseña", "")
             dob = request.POST.get("dob", "")
 
-            # Creamos el usuario con los datos cargados
-            user = User.objects.create_user(dni, email, pwd)
-            user.first_name, user.last_name = nombre, apellido
-            user.save()
+            # comprobamos si el usuario existe
+            usuario = User.objects.filter(username=dni)
 
-            # Creamos el cliente con los datos cargados
-            models_db.Cliente.objects.using("homebanking").create(
-                customer_name=nombre,
-                customer_surname=apellido,
-                customer_dni=dni,
-                dob=dob,
-                branch_id=random.randint(1, 100),
-            )
-            return redirect(reverse("paquetes"))
+            if len(usuario) == 0:
+                # Creamos el usuario con los datos cargados
+                user = User.objects.create_user(dni, email, pwd)
+                user.first_name, user.last_name = nombre, apellido
+                user.save()
+
+                # Creamos el cliente con los datos cargados
+                models_db.Cliente.objects.using("homebanking").create(
+                    customer_name=nombre,
+                    customer_surname=apellido,
+                    customer_dni=dni,
+                    dob=dob,
+                    branch_id=random.randint(1, 100),
+                )
+                return redirect(reverse("paquetes"))
+            return redirect(reverse("register") + "?dni-en-uso")
     return render(request, "clientes/register.html", {"form": registro_form})
