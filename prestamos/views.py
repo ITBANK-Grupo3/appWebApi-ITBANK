@@ -25,19 +25,48 @@ def prestamo(request):
             
             cliente = db_models.Cliente.objects.using('homebanking').filter(customer_dni = int(dni))
             cuenta = db_models.Cuenta.objects.using('homebanking').filter(customer_id = cliente[0].customer_id)
-            # for x in cuenta:
-            #     if cuenta_seleccionada == "CLASSIC" and cuenta[0].tipo_cuenta == 1:
-            #         c= db_models.Cuenta.objects.get(cutomer_id = cliente[0].customer_id)
-            #         c.balance = int(request.POST.get('monto',''))
-            #         c.save()
-            #     elif cuenta_seleccionada == "GOLD" and cuenta[0].tipo_cuenta == 2:
-            #         c= db_models.Cuenta.objects.get(cutomer_id = cliente[0].customer_id)
-            #         c.balance = request.POST.get('monto','')
-            #         c.save()
-            #     elif cuenta_seleccionada == "BLACK" and cuenta[0].tipo_cuenta == 3:
-            #         c= db_models.Cuenta.objects.get(cutomer_id = cliente[0].customer_id)
-            #         c.balance = int(request.POST.get('monto',''))
-            #         c.save()
+            for x in cuenta:
+                if cuenta_seleccionada[0] == "CLASSIC" and x.tipo_cuenta == 1:
+                     c= db_models.Cuenta.objects.using('homebanking').filter(cutomer_id = cliente[0].customer_id).filter(tipo_cuenta=1)
+                     c.balance =  115 #valor de prueba, acá iría el monto + el balance actual
+                     c.save()
+                     db_models.Cuenta.objects.using('homebanking').create(
+                        loan_type = tipo_prestamo,
+                        loan_date = fecha_inicio,
+                        loan_total = monto,
+                        customer_id = cliente
+
+                     )
+                    # x.balance = x.balance + int(monto)
+                    # x.save()
+
+                if cuenta_seleccionada[0] == "GOLD" and x.tipo_cuenta == 2:
+                    c= db_models.Cuenta.objects.using('homebanking').filter(cutomer_id = cliente[0].customer_id).filter(tipo_cuenta=2)
+                    c.balance =  115
+                    c.save()
+                    db_models.Cuenta.objects.using('homebanking').create(
+                        loan_type = tipo_prestamo,
+                        loan_date = fecha_inicio,
+                        loan_total = monto,
+                        customer_id = cliente
+
+                     )
+                    # x.balance = x.balance + int(monto)
+                    # x.save()
+                
+                if cuenta_seleccionada[0] == "BLACK" and x.tipo_cuenta == 3:
+                        c= db_models.Cuenta.objects.using('homebanking').filter(cutomer_id = cliente[0].customer_id).filter(tipo_cuenta=3)
+                        c.balance =  115
+                        c.save()
+                        db_models.Cuenta.objects.using('homebanking').create(
+                        loan_type = tipo_prestamo,
+                        loan_date = fecha_inicio,
+                        loan_total = monto,
+                        customer_id = cliente
+
+                     )
+                    # x.balance = x.balance + int(monto)
+                    # x.save()
             
             return redirect(reverse('prestamo')+"?ok" ) 
             
