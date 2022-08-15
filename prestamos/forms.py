@@ -1,21 +1,18 @@
-from cProfile import label
 from django import forms
+from homebanking import settings
 
-CUENTAS=(
-    ("CLASSIC","CLASSIC"),
-    ("GOLD","GOLD"),
-    ("BLACK","BLACK")
-)
 
-PRESTAMO_TIPO=(
-    ("1","PERSONAL"),
-    ("2","PRENDARIO"),
-    ("3","HIPOTECARIO")
-)
+PRESTAMO_TIPO = (("1", "PERSONAL"), ("2", "PRENDARIO"), ("3", "HIPOTECARIO"))
 
-class loanForm(forms.Form):
-    monto = forms.CharField(max_length=6, label="Ingrese el monto a solicitar")
-    dni = forms.CharField(max_length=8, label="Ingrese su DNI")
-    cuenta_seleccionada = forms.MultipleChoiceField(label="Seleccione una cuenta", choices=CUENTAS)
-    tipo_prestamo = forms.MultipleChoiceField(label="seleccione el tipo de prestamo", choices=PRESTAMO_TIPO)
-    fecha_inicio = forms.DateField(label="seleccione fecha de inicio del prestamo aa/mm/dd" )
+
+class PrestamoForm(forms.Form):
+    monto = forms.IntegerField(label="Ingrese el monto a solicitar")
+    tipo_prestamo = forms.CharField(
+        label="Seleccione el tipo de prestamo",
+        widget=forms.Select(choices=PRESTAMO_TIPO),
+    )
+    fecha_inicio = forms.DateField(
+        label="Seleccione fecha de inicio del prestamo",
+        input_formats=settings.DATE_INPUT_FORMATS,
+        widget=forms.TextInput(attrs={"placeholder": "dd-mm-yyyy"}),
+    )
