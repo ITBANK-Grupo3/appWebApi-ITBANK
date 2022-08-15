@@ -14,12 +14,16 @@
             
             <input class="Botones" type="submit" value="solicitar">
           </form>
-          {{request.POST}}
           <ul>
             <li><a href="{% url 'billetera' %}">volver</a></li>
           </ul>
           {% if 'ok' in request.GET %}
-            <p> Su prestamo fue aprobado!</p>
+          <strong><p style="color: rgb(83, 165, 80);"> Su prestamo fue aprobado!</p>
+          </strong>
+          {% endif %}
+          {%if 'no' in request.GET%}
+          <strong><p style="color: rgb(184, 28, 28);"> Lo sentimos ... se rechazo el prestamo ya que sobrepasa el cupo de su plan.</p>
+          </strong>
           {% endif %}
 
           
