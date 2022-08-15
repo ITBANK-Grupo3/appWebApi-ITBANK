@@ -15,6 +15,7 @@
 
 {% block content %}
       <div class="caja-superior">
+        
         <div class="span-cajasup">
           <span>Historico</span>
           <span>Abril</span>
@@ -33,11 +34,11 @@
 
       <footer id="barrafija">
         <div class="botonespie">
-            <article class="center left"><a href="#"> <img src="{% static 'render_templates/assets/img/casa (1) 1.png' %}"></a></article>
+            <article class="center left"><a href="{%url 'billetera'%}"> <img src="{% static 'render_templates/assets/img/casa (1) 1.png' %}"></a></article>
             <article class="center left"><a href="{%url 'graficos'%}"><img src="{% static 'render_templates/assets/img/pie-chart 1.png' %} "></a></article>
             <article class="center left " id="QR"><a href=""><img src="{% static 'render_templates/assets/img/QR.png' %} "></a></article>
             <article class="center left"><a href=""><img src="{% static 'render_templates/assets/img/packard-bell 1.png' %} "></a></article>
-            <article class="center left "><a href="{% url 'logout' %}"><img src="https://cdn-icons.flaticon.com/png/512/2984/premium/2984988.png?token=exp=1660509725~hmac=2645136fb40988058f23457389231fb5"></a></article>
+            <article class="center left "><a href="{% url 'logout' %}"><img src="{% static 'render_templates/assets/img/logout.png' %}"></a></article>
         </div>
       </footer>
 
