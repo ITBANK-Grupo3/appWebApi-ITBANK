@@ -11,7 +11,13 @@
 
 {% block content %}
 <div class="cuerpo accordion accordion-flush">
-
+  {% if 'ok' in request.GET %}
+  <div class="cuerpo" style="margin: 3rem 0 2rem 0; display: flex;flex-direction: column; justify-content: center;">
+    <strong><h5 style="color: rgb(32, 92, 69); ">Cuenta creada con exito!</h5></strong>
+    <img src="https://cdn-icons-png.flaticon.com/512/463/463574.png" alt="success" style="height:50px;margin: 1rem auto;">
+    <p style="margin: 0 auto; font-size: 15px;">Has click <a href="{%url 'login'%}">aqui</a> para iniciar sesion.</p>
+  </div>
+  {% else %}
   <!-- Acordion classic -->
   <div class="accordion-item cuenta-info">
     <h2 class="accordion-header" id="flush-headingOne">
@@ -100,6 +106,8 @@
   <ul>
     <li><a href="{% url 'login' %}">Iniciar sesion</a></li>
   </ul>
+  {% endif %}
+  
 </div>
 
 <!-- Bootstrap script-->

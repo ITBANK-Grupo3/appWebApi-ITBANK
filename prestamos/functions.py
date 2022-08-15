@@ -28,7 +28,7 @@ def solicitar_prestamo(dni, monto, tipo_prestamo, fecha_inicio):
                 caja_pesos = caja_pesos[0]
                 caja_pesos.balance += monto
                 caja_pesos.save()
-                return True
+
             else:
                 return False
         elif tipo_cliente.tipo_id == 2:
@@ -41,7 +41,7 @@ def solicitar_prestamo(dni, monto, tipo_prestamo, fecha_inicio):
                 caja_pesos = caja_pesos[0]
                 caja_pesos.balance += monto
                 caja_pesos.save()
-                return True
+
             else:
                 return False
 
@@ -55,6 +55,14 @@ def solicitar_prestamo(dni, monto, tipo_prestamo, fecha_inicio):
                 caja_pesos = caja_pesos[0]
                 caja_pesos.balance += monto
                 caja_pesos.save()
-                return True
+
             else:
                 return False
+        # Cargamos los datos en la tabla de prestamos
+        db_models.Prestamo.objects.using("homebanking").create(
+            loan_type=tipo_prestamo,
+            loan_date=fecha_inicio,
+            loan_total=monto,
+            customer_id=customer_id,
+        )
+        return True
