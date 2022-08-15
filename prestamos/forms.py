@@ -2,9 +2,9 @@ from cProfile import label
 from django import forms
 
 CUENTAS=(
-    ("1","CLASSIC"),
-    ("2","GOLD"),
-    ("3","BLACK")
+    ("CLASSIC","CLASSIC"),
+    ("GOLD","GOLD"),
+    ("BLACK","BLACK")
 )
 
 PRESTAMO_TIPO=(
