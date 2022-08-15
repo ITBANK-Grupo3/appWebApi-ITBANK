@@ -34,5 +34,5 @@ def paquetes(request):
             # generamos la tarjeta de debito inicial
             tarjetas.generate_card_for_user(cliente_id["customer_id"])
             # Redirigimos al login
-            return redirect(reverse("login"))
+            return redirect(reverse("paquetes") + "?ok")
     return render(request, "cuentas/paquetes.html", {"form": form})
