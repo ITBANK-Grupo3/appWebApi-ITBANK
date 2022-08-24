@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from database.models import Cliente
+from database.models import Cliente, Cuenta
 
 
 class ClienteSerializer(serializers.ModelSerializer):
@@ -14,3 +14,9 @@ class ClienteSerializer(serializers.ModelSerializer):
             "dob",
             "branch_id",
         ]
+
+
+class AccountSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Cuenta
+        fields = "__all__"
