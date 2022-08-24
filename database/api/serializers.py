@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from database.models import Cliente, Cuenta, Prestamo, Sucursal
+from database.models import Cliente, Cuenta, Prestamo, Sucursal, Tarjeta
 
 
 class ClienteSerializer(serializers.ModelSerializer):
@@ -32,3 +32,17 @@ class SucursalSerializer(serializers.ModelSerializer):
     class Meta:
         model = Sucursal
         fields = "__all__"
+
+
+class TarjetaSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Tarjeta
+        fields = [
+            "tarjeta_id",
+            "numero_tarjeta",
+            "cvv",
+            "fecha_creacion",
+            "fecha_vencimiento",
+            "tipo_tarjeta",
+            "cliente_id",
+        ]
