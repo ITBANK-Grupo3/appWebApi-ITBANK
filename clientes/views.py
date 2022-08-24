@@ -29,6 +29,12 @@ def register(request):
                 # Creamos el usuario con los datos cargados
                 user = User.objects.create_user(dni, email, pwd)
                 user.first_name, user.last_name = nombre, apellido
+                # comprobamos si es empleado
+                empleado = models_db.Empleado.objects.using("homebanking").filter(
+                    employee_dni=dni
+                )
+                if empleado:
+                    user.is_staff = 1
                 user.save()
 
                 # Creamos el cliente con los datos cargados
