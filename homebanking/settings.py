@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "rest_framework",
     "database",
     "clientes",
     "cuentas",
@@ -61,7 +62,7 @@ ROOT_URLCONF = "homebanking.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [os.path.join(BASE_DIR, 'templates')],
+        "DIRS": [os.path.join(BASE_DIR, "templates")],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
@@ -140,4 +141,4 @@ LOGOUT_REDIRECT_URL = "/accounts/login/"
 # Ingreso estandar de fechas en formularios
 DATE_INPUT_FORMATS = ["%d-%m-%Y"]
 
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
