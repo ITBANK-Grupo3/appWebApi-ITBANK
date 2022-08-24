@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from database.models import Cliente, Cuenta
+from database.models import Cliente, Cuenta, Prestamo, Sucursal
 
 
 class ClienteSerializer(serializers.ModelSerializer):
@@ -19,4 +19,16 @@ class ClienteSerializer(serializers.ModelSerializer):
 class AccountSerializer(serializers.ModelSerializer):
     class Meta:
         model = Cuenta
+        fields = "__all__"
+
+
+class PrestamoSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Prestamo
+        fields = "__all__"
+
+
+class SucursalSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Sucursal
         fields = "__all__"
