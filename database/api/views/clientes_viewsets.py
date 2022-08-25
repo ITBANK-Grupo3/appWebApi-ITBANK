@@ -6,7 +6,7 @@ from database.api.serializers import ClienteSerializer
 from database.api.permissions import GetOwnData
 
 
-class ClienteViewSet(viewsets.ModelViewSet):
+class ClienteViewSet(viewsets.ReadOnlyModelViewSet):
     queryset = Cliente.objects.using("homebanking").all()
     serializer_class = ClienteSerializer
 
