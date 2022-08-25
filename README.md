@@ -1,32 +1,37 @@
 ## HomeBanking - ITBANK
-**Datos de usuario Admin:**
-- Usuario: "admin"
-- Contraseña: 000
+<h2>Importante!</h2>
+Instalar los paquetes cargados en el `requirements.txt`
 
 <h3>Registrarse en el banco</h3>
 Si el Dni cargado al momento del registro se encuentra en la tabla de empleados, el usuario se creará como parte del staff y se le permitirá navegar libremente por la API. De lo contrario, el usuario solo podrá acceder a los datos pertenecientes a su usuario, y a la api de sucursales
 
+**Datos de usuario Admin:**
+- Usuario: "admin"
+- Contraseña: 000
 ## Documentación de la API
 Debe estar autorizado en el banco para poder navergar por el menú
 
-- Api Root: `http://localhost:8000/api/`
+- Api Root: `/api/`
 
-- Datos Clientes: `http://localhost:8000/api/clientes/`
+- Datos Clientes: `/api/clientes/`
   (usuario común no puede acceder a estos datos)
-- Datos Cliente en específico: `http://localhost:8000/api/clientes/(id-del-cliente)/` (usuario común puede ver sus datos con id)
+- Datos Cliente en específico: `/api/clientes/(id-del-cliente)/` 
+(usuario común puede ver solo sus datos con id)
 
-- Cuentas: `http://localhost:8000/api/cuentas/` 
-  (al usuario común solo se le carga sus cuentas)
-- Cuenta en específico: `http://localhost:8000/api/cuentas/(id-del-cliente)/`
+- Cuentas: `/api/cuentas/` 
+- Cuenta en específico: `/api/cuentas/(id-del-cliente)/`
+- Cuentas según usuario: `/api/cuentas/?customer_id=(id)`
 
-- Prestamos: `http://localhost:8000/api/prestamos/`
-  (al usuario común solo se le carga sus prestamos)
-- Prestamo en específico: `http://localhost:8000/api/prestamos/(id-del-cliente)/`
+- Prestamos: `/api/prestamos/`
+- Prestamo en específico: `/api/prestamos/(id-del-cliente)/`
+- Prestamos por usuario : `/api/prestamos/?customer_id=(id)`
+- Prestamo Por Sucursal: `xd`
 
-- Sucursales: `http://localhost:8000/api/sucursal_prestamos/`
-  (acceso a usuario autenticado)
-- Prestamos por sucursal: `http://localhost:8000/api/sucursal_prestamos/(id-sucursal)/`
+- Sucursales: `/api/sucursales/`
+  (acceso público)
+- Sucursal por id: `/api/sucursales/(id-sucursal)/`
 
-- Tarjetas: `http://localhost:8000/api/tarjetas/`
+- Tarjetas: `/api/tarjetas/`
 (usuario común sin acceso)
-- Tarjetas por cliente: `http://localhost:8000/api/tarjetas/(id-cliente)/`
+- Tarjetas por id:`/api/tarjetas/(id-tarjeta)`
+- Tarjetas por cliente: `/api/tarjetas/?cliente_id=523`
