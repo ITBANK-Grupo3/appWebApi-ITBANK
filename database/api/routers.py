@@ -13,7 +13,7 @@ router.register(r"clientes", clientes_viewsets.ClienteViewSet)
 router.register(r"cuentas", cuentas_viewsets.CuentaViewSet)
 router.register(r"prestamos", prestamos_viewsets.PrestamosViewSet)
 router.register(r"tarjetas", tarjetas_viewsets.TarjetaViewSet)
-router.register(r"sucursales", prestamos_viewsets.SucursalPrestamosViewSet)
+router.register(r"sucursales", prestamos_viewsets.SucursalViewSet)
 
 
 urlpatterns = router.urls

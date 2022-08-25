@@ -1,8 +1,8 @@
 ## HomeBanking - ITBANK
-<h2>Importante!</h2>
+## **Importante!**
 Instalar los paquetes cargados en el `requirements.txt`
 
-<h3>Registrarse en el banco</h3>
+## Registrarse en el banco
 Si el Dni cargado al momento del registro se encuentra en la tabla de empleados, el usuario se creará como parte del staff y se le permitirá navegar libremente por la API. De lo contrario, el usuario solo podrá acceder a los datos pertenecientes a su usuario, y a la api de sucursales
 
 **Datos de usuario Admin:**

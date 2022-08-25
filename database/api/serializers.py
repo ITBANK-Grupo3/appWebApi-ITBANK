@@ -22,10 +22,14 @@ class AccountSerializer(serializers.ModelSerializer):
         fields = "__all__"
 
 
+# FloatField(source="sucursal.branch_id", read_only=True)
 class PrestamoSerializer(serializers.ModelSerializer):
     class Meta:
         model = Prestamo
         fields = "__all__"
+
+    def create(self, validated_data):
+        return Prestamo.objects.using("homebanking").create(**validated_data)
 
 
 class SucursalSerializer(serializers.ModelSerializer):
