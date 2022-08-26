@@ -26,7 +26,13 @@ class AccountSerializer(serializers.ModelSerializer):
 class PrestamoSerializer(serializers.ModelSerializer):
     class Meta:
         model = Prestamo
-        fields = "__all__"
+        fields = [
+            "loan_id",
+            "loan_type",
+            "loan_date",
+            "loan_total",
+            "customer_id",
+        ]
 
     def create(self, validated_data):
         return Prestamo.objects.using("homebanking").create(**validated_data)

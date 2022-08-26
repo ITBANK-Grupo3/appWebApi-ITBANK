@@ -31,10 +31,12 @@ class PrestamosViewSet(viewsets.ModelViewSet, CustomMethods):
         # Prestamos para usuarios comunes
         if not request.user.is_staff == 1:
             cliente_id = self.get_customer_id(self.request)
-            data = self.queryset.filter(customer_id=cliente_id)
+            data = self.queryset.filter(customer_id=cliente_id) or [
+                {"message": "El usuario solicitado no posee prestamos actualmente"}
+            ]
 
         else:  # Prestamos para staff
-            # Prestamos según sucursal
+            # Filtro según sucursal
             if "sucursal_id" in self.request.GET:
                 sucursal_id = int(self.request.GET["sucursal_id"])
                 clientes = Cliente.objects.using("homebanking").filter(
@@ -45,14 +47,17 @@ class PrestamosViewSet(viewsets.ModelViewSet, CustomMethods):
                     data += Prestamo.objects.using("homebanking").filter(
                         customer_id=cliente.customer_id
                     )
+                data = data or [
+                    {"message": "La sucursal solicitada no posee prestamos actualmente"}
+                ]
             else:
                 data = self.filter_queryset(self.get_queryset())
-        if data:
+        # corroboramos si llegó informacion
+        if len(data) > 0 and type(data[0]) == dict:
+            return Response(data)
+        else:
             serializer = self.get_serializer(data, many=True)
             return Response(serializer.data)
-        return Response(
-            {"message": "La sucursal solicitada no posee prestamos actualmente"}
-        )
 
     # Modificamos el post
     def create(self, request, *args, **kwargs):
