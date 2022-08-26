@@ -21,12 +21,12 @@ Debe estar autorizado en el banco para poder navergar por el menú
 (usuario común puede ver solo sus datos con id)
 
 **Cuentas**
-- Cuentas: `/api/cuentas/` 
+- Cuentas: `/api/cuentas/` (al usuario común solo se cargan sus cuentas y no funcionan filtros)
 - Cuenta en específico: `/api/cuentas/(id-del-cliente)/`
 - Cuentas según usuario: `/api/cuentas/?customer_id=(id)`
 
 **Prestamos**
-- Prestamos: `/api/prestamos/`
+- Prestamos: `/api/prestamos/` (al usuario común solo se cargan sus prestamos y no funcionan filtros)
 - Prestamo en específico: `/api/prestamos/(id-del-cliente)/`
 - Prestamos por usuario : `/api/prestamos/?customer_id=(id)`
 - Prestamos por Sucursal: `/api/prestamos/?sucursal_id=(id)`
