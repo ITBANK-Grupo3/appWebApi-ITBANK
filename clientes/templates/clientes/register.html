@@ -10,14 +10,60 @@
 <div class="cuerpo">
 	<form class="cuerpo" action="" method="POST">
     {% csrf_token %}
-    {% if 'dni-en-uso' in request.GET %}
-    <label for="">
-      <strong>
-        <p style="color: rgb(121, 31, 31);">El dni ingresado ya se encuentra registrado.</p>
-      </strong>
-    </label>
+    
+    {{form.dni_cliente.label}}
+      {% if 'dni-en-uso' in request.GET %}
+      <label for="">
+        <strong>
+          <p style="color: rgb(121, 31, 31);font-size: 12px;">El dni ingresado ya se encuentra registrado</p>
+        </strong>
+      </label>
+      {%endif%}
+    {{form.dni_cliente}}
+    {{form.nombre.label}}
+    {% if 'nombre' in request.POST %}
+      {% if '0' in request.POST.nombre or '1' in request.POST.nombre or '2' in request.POST.nombre or '3' in request.POST.nombre or '4' in request.POST.nombre or '5' in request.POST.nombre or '6' in request.POST.nombre or '7' in request.POST.nombre or '8' in request.POST.nombre or '9' in request.POST.nombre%}
+      <label for="">
+        <strong>
+          <p style="color: rgb(121, 31, 31);font-size: 12px;">El nombre no debe poseer números</p>
+        </strong>
+      </label>
+      {% endif %}
     {%endif%}
-    {{form}}
+    {{form.nombre}}
+    {{form.apellido.label}}
+    {% if 'apellido' in request.POST %}
+      {% if '0' in request.POST.apellido or '1' in request.POST.apellido or '2' in request.POST.apellido or '3' in request.POST.apellido or '4' in request.POST.apellido or '5' in request.POST.apellido or '6' in request.POST.apellido or '7' in request.POST.apellido or '8' in request.POST.apellido or '9' in request.POST.apellido%}
+      <label for="">
+        <strong>
+          <p style="color: rgb(121, 31, 31);font-size: 12px;">El apellido no debe poseer números</p>
+        </strong>
+      </label>
+      {% endif %}
+    {%endif%}
+    {{form.apellido}}
+    {{form.email.label}}
+    {{form.email}}
+    {{form.dob.label}}
+    {{form.dob}}
+    {{form.contraseña.label}}
+      {% if 'diffpwd' in request.GET %}
+      <label for="">
+        <strong>
+          <p style="color: rgb(121, 31, 31);font-size: 12px;">Las contraseñas ingresadas deben coincidir</p>
+        </strong>
+      </label>
+      {%endif%}
+    {{form.contraseña}}
+    {{form.rep_contraseña.label}}
+      {% if 'diffpwd' in request.GET %}
+      <label for="">
+        <strong>
+          <p style="color: rgb(121, 31, 31);font-size: 12px;">Las contraseñas ingresadas deben coincidir</p>
+        </strong>
+      </label>
+      {%endif%}
+    {{form.rep_contraseña}}
     <input class="Botones" type="submit" value="Siguiente Paso">
   </form>
   <ul>
