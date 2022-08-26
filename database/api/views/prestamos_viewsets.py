@@ -1,7 +1,8 @@
-from rest_framework import viewsets, permissions, generics, status
+from urllib import request
+from rest_framework import viewsets, permissions, status
 from rest_framework.response import Response
 
-from django_filters.rest_framework import DjangoFilterBackend, FilterSet
+from django_filters.rest_framework import DjangoFilterBackend
 
 from database.models import Cliente, Prestamo, Sucursal, Cuenta
 from database.api.serializers import PrestamoSerializer, SucursalSerializer
@@ -23,6 +24,25 @@ class PrestamosViewSet(viewsets.ModelViewSet):
         else:
             permission_classes = [permissions.IsAdminUser]
         return [permission() for permission in permission_classes]
+
+    # Listar según filtro
+    def list(self, request, *args, **kwargs):
+        if "sucursal_id" in self.request.GET:
+            sucursal = int(self.request.GET["sucursal_id"])
+            clientes = Cliente.objects.using("homebanking").filter(branch_id=sucursal)
+            data = []
+            for cliente in clientes:
+                data += Prestamo.objects.using("homebanking").filter(
+                    customer_id=cliente.customer_id
+                )
+        else:
+            data = self.filter_queryset(self.get_queryset())
+        if data:
+            serializer = self.get_serializer(data, many=True)
+            return Response(serializer.data)
+        return Response(
+            {"message": "La sucursal solicitada no posee prestamos actualmente"}
+        )
 
     # Modificamos el post
     def create(self, request, *args, **kwargs):

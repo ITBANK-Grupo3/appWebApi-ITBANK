@@ -11,26 +11,32 @@ Si el Dni cargado al momento del registro se encuentra en la tabla de empleados,
 ## Documentación de la API
 Debe estar autorizado en el banco para poder navergar por el menú
 
+**Root**
 - Api Root: `/api/`
 
+**Clientes**
 - Datos Clientes: `/api/clientes/`
   (usuario común no puede acceder a estos datos)
 - Datos Cliente en específico: `/api/clientes/(id-del-cliente)/` 
 (usuario común puede ver solo sus datos con id)
 
+**Cuentas**
 - Cuentas: `/api/cuentas/` 
 - Cuenta en específico: `/api/cuentas/(id-del-cliente)/`
 - Cuentas según usuario: `/api/cuentas/?customer_id=(id)`
 
+**Prestamos**
 - Prestamos: `/api/prestamos/`
 - Prestamo en específico: `/api/prestamos/(id-del-cliente)/`
 - Prestamos por usuario : `/api/prestamos/?customer_id=(id)`
-- Prestamo Por Sucursal: `xd`
+- Prestamos por Sucursal: `/api/prestamos/?sucursal_id=(id)`
 
+**Sucursales**
 - Sucursales: `/api/sucursales/`
   (acceso público)
 - Sucursal por id: `/api/sucursales/(id-sucursal)/`
 
+**Tarjetas**
 - Tarjetas: `/api/tarjetas/`
 (usuario común sin acceso)
 - Tarjetas por id:`/api/tarjetas/(id-tarjeta)`
