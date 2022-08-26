@@ -1,4 +1,3 @@
-from urllib import request
 from rest_framework import viewsets, permissions, status
 from rest_framework.response import Response
 
@@ -7,9 +6,10 @@ from django_filters.rest_framework import DjangoFilterBackend
 from database.models import Cliente, Prestamo, Sucursal, Cuenta
 from database.api.serializers import PrestamoSerializer, SucursalSerializer
 from database.api.permissions import GetOwnData
+from .methods import CustomMethods
 
 
-class PrestamosViewSet(viewsets.ModelViewSet):
+class PrestamosViewSet(viewsets.ModelViewSet, CustomMethods):
     # Asignacion del modelo
     queryset = Prestamo.objects.using("homebanking").all()
     serializer_class = PrestamoSerializer
@@ -19,7 +19,7 @@ class PrestamosViewSet(viewsets.ModelViewSet):
 
     # Permisos segun solicitud
     def get_permissions(self):
-        if self.action == "retrieve":
+        if self.action == "retrieve" or self.action == "list":
             permission_classes = [permissions.IsAuthenticated, GetOwnData]
         else:
             permission_classes = [permissions.IsAdminUser]
@@ -27,16 +27,26 @@ class PrestamosViewSet(viewsets.ModelViewSet):
 
     # Listar según filtro
     def list(self, request, *args, **kwargs):
-        if "sucursal_id" in self.request.GET:
-            sucursal = int(self.request.GET["sucursal_id"])
-            clientes = Cliente.objects.using("homebanking").filter(branch_id=sucursal)
-            data = []
-            for cliente in clientes:
-                data += Prestamo.objects.using("homebanking").filter(
-                    customer_id=cliente.customer_id
+
+        # Prestamos para usuarios comunes
+        if not request.user.is_staff == 1:
+            cliente_id = self.get_customer_id(self.request)
+            data = self.queryset.filter(customer_id=cliente_id)
+
+        else:  # Prestamos para staff
+            # Prestamos según sucursal
+            if "sucursal_id" in self.request.GET:
+                sucursal_id = int(self.request.GET["sucursal_id"])
+                clientes = Cliente.objects.using("homebanking").filter(
+                    branch_id=sucursal_id
                 )
-        else:
-            data = self.filter_queryset(self.get_queryset())
+                data = []
+                for cliente in clientes:
+                    data += Prestamo.objects.using("homebanking").filter(
+                        customer_id=cliente.customer_id
+                    )
+            else:
+                data = self.filter_queryset(self.get_queryset())
         if data:
             serializer = self.get_serializer(data, many=True)
             return Response(serializer.data)
