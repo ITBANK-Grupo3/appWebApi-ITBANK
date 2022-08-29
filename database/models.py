@@ -43,7 +43,7 @@ class Cuenta(models.Model):
 class Direcciones(models.Model):
     dir_id = models.AutoField(primary_key=True)
     correspondencia = models.ForeignKey(CorrespondenciaDirecciones, on_delete=models.DO_NOTHING, null= True)
-    titular_id = models.IntegerField()
+    customer_id = models.IntegerField()
     calle = models.TextField()
     numero = models.IntegerField()
     ciudad = models.TextField()

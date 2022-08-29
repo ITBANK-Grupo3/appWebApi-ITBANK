@@ -1,6 +1,7 @@
 
 from rest_framework import viewsets, permissions
 from rest_framework.response import Response
+from rest_framework import status
 
 
 from database.models import Direcciones
@@ -13,7 +14,7 @@ class DireccionesViewSet(viewsets.ModelViewSet, CustomMethods):
 
     filter_id = ["titular_id"]
     def get_permissions(self):
-        if self.action == "retrieve" or self.action == "list":
+        if self.action == "retrieve" or self.action == "list" or self.action == "create" or self.action=="update" or self.action=="destroy":
             permission_classes = [permissions.IsAuthenticated, GetOwnData]
         else:
             permission_classes = [permissions.IsAdminUser]
@@ -24,7 +25,7 @@ class DireccionesViewSet(viewsets.ModelViewSet, CustomMethods):
         # Cuentas del cliente
         if not request.user.is_staff == 1:
             customer_id = self.get_customer_id(self.request)
-            data = self.queryset.filter(titular_id=customer_id) or [
+            data = self.queryset.filter(customer_id=customer_id) or [
                 {"message": "El usuario solicitado no tiene direcciones registradas"}
             ]
         else:
@@ -37,13 +38,14 @@ class DireccionesViewSet(viewsets.ModelViewSet, CustomMethods):
             serializer = self.get_serializer(data, many=True)
             return Response(serializer.data)
     
-    def post(self,request, *args, **kwargs):
+    def create(self,request, *args, **kwargs):
         data = request.data
         serializer = DireccionesSerializer(data=data)
+        
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED) 
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+        return Response(serializer.errors, status= status.HTTP_400_BAD_REQUEST)
     
     def delete(self, request, dir_id): 
         direccion = Direcciones.objects.filter(pk=dir_id).first()

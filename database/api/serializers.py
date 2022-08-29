@@ -62,7 +62,8 @@ class DireccionesSerializer(serializers.ModelSerializer):
     class Meta:
         model = Direcciones
         fields = [
-            "titular_id",
+            "dir_id",
+            "customer_id",
 
             "calle",
             "numero",
