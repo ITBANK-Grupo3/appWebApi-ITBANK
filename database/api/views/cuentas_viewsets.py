@@ -2,6 +2,8 @@ from rest_framework import viewsets, permissions
 from rest_framework.response import Response
 
 from django_filters.rest_framework import DjangoFilterBackend
+from django.utils.decorators import method_decorator
+from django.views.decorators.csrf import csrf_exempt
 
 from database.models import Cuenta
 from database.api.serializers import AccountSerializer
@@ -15,6 +17,10 @@ class CuentaViewSet(viewsets.ReadOnlyModelViewSet, CustomMethods):
 
     filter_backends = [DjangoFilterBackend]
     filterset_fields = ["customer_id"]
+
+    @method_decorator(csrf_exempt)
+    def dispatch(self, request,  *args, **kwargs):
+        return super().dispatch(request,  *args, **kwargs)
 
     def get_permissions(self):
         if self.action == "retrieve" or self.action == "list":
