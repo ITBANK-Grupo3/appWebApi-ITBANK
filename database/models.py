@@ -59,7 +59,7 @@ class Empleado(models.Model):
     employee_id = models.AutoField(primary_key=True)
     employee_name = models.TextField()
     employee_surname = models.TextField()
-    employee_hire_date = models.DateTimeField()
+    employee_hire_date = models.TextField()
     employee_dni = models.TextField(
         db_column="employee_DNI"
     )  # Field name made lowercase.
