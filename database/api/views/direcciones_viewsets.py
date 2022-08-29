@@ -40,13 +40,21 @@ class DireccionesViewSet(viewsets.ModelViewSet, CustomMethods):
     
     def create(self,request, *args, **kwargs):
         data = request.data
-        serializer = DireccionesSerializer(data=data)
         
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data, status=status.HTTP_201_CREATED) 
-        return Response(serializer.errors, status= status.HTTP_400_BAD_REQUEST)
-    
+        if not request.user.is_staff == 1:
+            data['customer_id']= self.get_customer_id(self.request)
+            serializer = DireccionesSerializer(data=data)
+            if serializer.is_valid():
+                serializer.save()
+                return Response(serializer.data, status=status.HTTP_201_CREATED) 
+            return Response(serializer.errors, status= status.HTTP_400_BAD_REQUEST)
+        else:
+            serializer = DireccionesSerializer(data=data)
+            if serializer.is_valid():
+                serializer.save()
+                return Response(serializer.data, status=status.HTTP_201_CREATED) 
+            return Response(serializer.errors, status= status.HTTP_400_BAD_REQUEST)    
+        
     def delete(self, request, dir_id): 
         direccion = Direcciones.objects.filter(pk=dir_id).first()
         if direccion:
@@ -57,11 +65,19 @@ class DireccionesViewSet(viewsets.ModelViewSet, CustomMethods):
     
     def put(self, request, dir_id):
         direccion = Direcciones.objects.filter(pk=dir_id).first()
-        serializer = DireccionesSerializer(direccion)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+        if not request.user.is_staff == 1:
+            direccion['customer_id']= self.get_customer_id(self.request)
+            serializer = DireccionesSerializer(data=direccion)
+            if serializer.is_valid():
+                serializer.save()
+                return Response(serializer.data)
+            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+        else:
+            serializer = DireccionesSerializer(data=direccion)
+            if serializer.is_valid():
+                serializer.save()
+                return Response(serializer.data)
+            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)    
 
 """ from ..serializers import DireccionesSerializer
 from ...models import Direcciones
