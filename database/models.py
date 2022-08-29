@@ -59,7 +59,7 @@ class Empleado(models.Model):
     employee_id = models.AutoField(primary_key=True)
     employee_name = models.TextField()
     employee_surname = models.TextField()
-    employee_hire_date = models.TextField()
+    employee_hire_date = models.DateTimeField()
     employee_dni = models.TextField(
         db_column="employee_DNI"
     )  # Field name made lowercase.
@@ -99,7 +99,7 @@ class Movimientos(models.Model):
 class Prestamo(models.Model):
     loan_id = models.AutoField(primary_key=True)
     loan_type = models.TextField()
-    loan_date = models.TextField()
+    loan_date = models.DateTimeField()
     loan_total = models.IntegerField()
     customer_id = models.IntegerField()
 
@@ -123,7 +123,7 @@ class Tarjeta(models.Model):
     tarjeta_id = models.AutoField(primary_key=True)
     numero_tarjeta = models.CharField(unique=True, max_length=16)
     cvv = models.TextField()  # This field type is a guess.
-    fecha_creacion = models.TextField()
+    fecha_creacion = models.DateTimeField()
     fecha_vencimiento = models.TextField()
     tipo_tarjeta = models.TextField()  # This field type is a guess.
     cliente_id = models.IntegerField()

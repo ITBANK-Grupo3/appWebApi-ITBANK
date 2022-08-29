@@ -8,13 +8,13 @@ class CuentaAdmin(admin.ModelAdmin):
     search_fields=("customer_id","tipo_cuenta")
 
 class DireccionesAdmin(admin.ModelAdmin):
-    list_display=("titular_id","calle","numero","ciudad","provincia","pais")
-    search_fields=("titular_id","calle","numero","ciudad","provincia","pais")
+    list_display=("customer_id","calle","numero","ciudad","provincia","pais")
+    search_fields=("customer_id","calle","numero","ciudad","provincia","pais")
     list_filter=("ciudad","provincia","pais")
 
 class EmpleadoAdmin(admin.ModelAdmin):
-    list_display=("employee_name","employee_surname","employee_hire_date","employee_DNI","branch_id")
-    search_fields=("employee_name","employee_surname","employee_DNI","branch_id")
+    list_display=("employee_name","employee_surname","employee_hire_date","employee_dni","branch_id")
+    search_fields=("employee_name","employee_surname","employee_dni","branch_id")
     date_hierarchy=("employee_hire_date")
     list_filter=("employee_hire_date","branch_id")
 
@@ -22,7 +22,6 @@ class MovimientosAdmin(admin.ModelAdmin):
     list_display=("emisor_id","receptor_id","amount","type","created_at")
     search_fields=("emisor_id","receptor_id","type")
     date_hierarchy=("created_at")
-    list_filter=("created_at")
 
 class PrestamoAdmin(admin.ModelAdmin):
     list_display=("loan_type","loan_date","loan_total","customer_id")
@@ -50,9 +49,8 @@ class TipoCuentaAdmin(admin.ModelAdmin):
     list_display=("tipo_id","nombre_tipo")
 
 class ClienteAdmin(admin.ModelAdmin):
-    list_display=("customer_id","customer_name","customer_surname","customer_DNI","dob","branch_id")
-    search_fields=("customer_id","customer_name","customer_surname","customer_DNI","branch_id")
-    list_filter=("branch_id")
+    list_display=("customer_id","customer_name","customer_surname","customer_dni","dob","branch_id")
+    search_fields=("customer_id","customer_name","customer_surname","customer_dni","branch_id")
 
 admin.site.register(Cuenta,CuentaAdmin)
 admin.site.register(Direcciones,DireccionesAdmin)
