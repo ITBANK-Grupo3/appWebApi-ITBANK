@@ -15,18 +15,15 @@ class DireccionesAdmin(admin.ModelAdmin):
 class EmpleadoAdmin(admin.ModelAdmin):
     list_display=("employee_name","employee_surname","employee_hire_date","employee_dni","branch_id")
     search_fields=("employee_name","employee_surname","employee_dni","branch_id")
-    date_hierarchy=("employee_hire_date")
     list_filter=("employee_hire_date","branch_id")
 
 class MovimientosAdmin(admin.ModelAdmin):
-    list_display=("emisor_id","receptor_id","amount","type","created_at")
-    search_fields=("emisor_id","receptor_id","type")
-    date_hierarchy=("created_at")
+    list_display=("account_id","account_id_rec","amount","type","created_at")
+    search_fields=("account_id","account_id_rec","type")
 
 class PrestamoAdmin(admin.ModelAdmin):
     list_display=("loan_type","loan_date","loan_total","customer_id")
     search_fields=("loan_type","customer_id")
-    date_hierarchy=("loan_date")
     list_filter=("loan_date","loan_type")
 
 class SucursalAdmin(admin.ModelAdmin):
@@ -39,7 +36,6 @@ class MarcaTarjetaAdmin(admin.ModelAdmin):
 class TarjetaAdmin(admin.ModelAdmin):
     list_display=("numero_tarjeta","cvv","fecha_creacion","fecha_vencimiento","tipo_tarjeta","cliente_id","marca_tarjeta_id")
     search_fields=("numero_tarjeta","fecha_creacion")
-    date_hierarchy=("fecha_creacion")
     list_filter=("fecha_creacion","tipo_tarjeta","marca_tarjeta_id")
 
 class TipoClienteAdmin(admin.ModelAdmin):
