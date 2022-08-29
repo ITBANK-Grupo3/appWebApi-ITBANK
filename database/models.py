@@ -5,6 +5,7 @@
 #   * Make sure each ForeignKey and OneToOneField has `on_delete` set to the desired behavior
 #   * Remove `managed = False` lines if you wish to allow Django to create, modify, and delete the table
 # Feel free to rename the models, but don't rename db_table values or field names.
+from xml.sax.handler import feature_validation
 from django.db import models
 
 
@@ -26,7 +27,7 @@ class AuditoriaCuenta(models.Model):
 
 
 class CorrespondenciaDirecciones(models.Model):
-    correspondencia_id = models.AutoField(primary_key=True, blank=True, null=False)
+    correspondencia_id = models.AutoField(primary_key=True, blank=False )
     tipo = models.TextField()
 
     class Meta:
@@ -47,8 +48,8 @@ class Cuenta(models.Model):
 
 
 class Direcciones(models.Model):
-    dire_id = models.AutoField(primary_key=True)
-    correspondencia = models.ForeignKey(CorrespondenciaDirecciones, models.DO_NOTHING)
+    dir_id = models.AutoField(primary_key=True)
+    correspondencia = models.ForeignKey(CorrespondenciaDirecciones, on_delete=models.DO_NOTHING, null= True)
     titular_id = models.IntegerField()
     calle = models.TextField()
     numero = models.IntegerField()

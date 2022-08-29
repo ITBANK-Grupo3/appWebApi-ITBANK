@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from database.models import Cliente, Cuenta, Prestamo, Sucursal, Tarjeta
+from database.models import Cliente, Cuenta, Direcciones, Prestamo, Sucursal, Tarjeta
 
 
 class ClienteSerializer(serializers.ModelSerializer):
@@ -55,4 +55,18 @@ class TarjetaSerializer(serializers.ModelSerializer):
             "fecha_vencimiento",
             "tipo_tarjeta",
             "cliente_id",
+        ]
+
+
+class DireccionesSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Direcciones
+        fields = [
+            "titular_id",
+
+            "calle",
+            "numero",
+            "ciudad",
+            "provincia",
+            "pais",
         ]

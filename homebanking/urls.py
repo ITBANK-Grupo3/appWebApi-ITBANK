@@ -16,10 +16,14 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
+from database.api.views import direcciones_viewsets as dir_views
+
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("", include("render_templates.urls")),
     path("accounts/", include("django.contrib.auth.urls")),
     path("cuenta/", include("login.urls")),
     path("api/", include("database.api.routers")),
+    #path('api/direcciones/', dir_views.DireccionesList.as_view(),name='api_direcciones' )
+
 ]

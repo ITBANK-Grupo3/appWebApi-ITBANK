@@ -143,3 +143,5 @@ LOGOUT_REDIRECT_URL = "/accounts/login/"
 DATE_INPUT_FORMATS = ["%d-%m-%Y"]
 
 EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+
+DATABASE_ROUTERS = ['database.dbrouter.MyRouter', ]

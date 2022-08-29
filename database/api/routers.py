@@ -6,6 +6,7 @@ from database.api.views import (
     cuentas_viewsets,
     prestamos_viewsets,
     tarjetas_viewsets,
+    direcciones_viewsets
 )
 
 router = DefaultRouter()
@@ -14,6 +15,7 @@ router.register(r"cuentas", cuentas_viewsets.CuentaViewSet)
 router.register(r"prestamos", prestamos_viewsets.PrestamosViewSet)
 router.register(r"tarjetas", tarjetas_viewsets.TarjetaViewSet)
 router.register(r"sucursales", prestamos_viewsets.SucursalViewSet)
+router.register(r'direcciones', direcciones_viewsets.DireccionesViewSet)
 
 
 urlpatterns = router.urls
